@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/Avinash/IdeaProjects/SeleniumProject">
         <classes>
-            <class name="tests.FirstTest">
+            <class name="tests.LoginTests">
 
             </class>
         </classes>
