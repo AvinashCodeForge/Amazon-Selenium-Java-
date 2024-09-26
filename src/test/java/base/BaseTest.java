@@ -1,26 +1,35 @@
 package base;
 
-import org.junit.BeforeClass;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    public static WebDriver driver;
+    public static Properties prop;
 
-    @BeforeMethod
-    public WebDriver setup() {
-        driver = new ChromeDriver();
-        return driver;
+    public BaseTest(){
+        try {
+            prop = new Properties();
+            FileInputStream ip = new FileInputStream("C:\\Users\\Avinash\\IdeaProjects\\SeleniumProject\\src\\main\\java\\config\\config.properties");
+            prop.load(ip);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    public static void initialization() {
+        String browserName = prop.getProperty("browser");
 
-    @AfterMethod
-    public void tearDown() {
-        // Quit the WebDriver
-        if (driver != null) {
-            driver.quit();
+        if (browserName.equals("chrome")) {
+            driver = new ChromeDriver(); // remove the 'WebDriver' declaration here
+            driver.manage().window().maximize();
+            driver.get(prop.getProperty("url"));
         }
     }
 }

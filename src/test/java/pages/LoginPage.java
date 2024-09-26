@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -17,7 +16,7 @@ public class LoginPage {
 
     private final WebDriver driver;
     private final LoginPageLocators locators;
-    String ITEM = "apple iphone 15 128 gb - yellow";
+    public static String ITEM = "apple iphone 15 128 gb - yellow";
 
     // Constructor to initialize WebDriver and locators
     public LoginPage(WebDriver driver) {
