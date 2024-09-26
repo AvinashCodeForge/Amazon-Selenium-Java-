@@ -57,53 +57,63 @@ public class LoginPage {
         }
     }
 
+    // Method to click on continue button after entering the username
     public void clickContinueButton() {
         WebElement continueButton = driver.findElement(LoginPageLocators.CONTINUE_BUTTON);
         continueButton.click();
     }
 
+    // Method to click on sign-in button
     public void clickSignInButton() {
         WebElement signInButton = driver.findElement(LoginPageLocators.SIGN_IN_BUTTON);
         signInButton.click();
     }
 
+    // Method to click on the search icon
     public void clickSearchButton() {
         WebElement searchButton = driver.findElement(LoginPageLocators.SEARCH_ICON);
         searchButton.click();
     }
 
+    // Method to check item price after adding into the cart
     public void checkItemPrice() {
         WebElement itemPrice = driver.findElement(LoginPageLocators.ITEM_PRICE);
         String itemValue = itemPrice.getText();
         System.out.print(itemValue);
     }
 
+    // Method to click on cart icon
     public void clickCartIcon() {
         WebElement cartIcon = driver.findElement(LoginPageLocators.CLICK_CART_ICON);
         cartIcon.click();
     }
 
+    // Method to check the item is in stock
     public void checkItem() {
         WebElement checkItem = driver.findElement(LoginPageLocators.CHECK_ITEM);
         checkItem.click();
     }
 
+    // Method to click on dropdown to select the quantity
     public void clickDropDown() {
         WebElement dropDownButton = driver.findElement(LoginPageLocators.CLICK_DROPDOWN);
         dropDownButton.click();
     }
 
-    public void clickSearchIcon() {
-        WebElement searchIcon = driver.findElement(LoginPageLocators.SEARCH_BAR_ICON);
+    // Method to enter the item name in the search input field
+    public void clickSearchInputField() {
+        WebElement searchIcon = driver.findElement(LoginPageLocators.SEARCH_INPUT);
         searchIcon.sendKeys(ITEM);
     }
 
+    // Method to click on the Add to Cart button
     public void clickAddToCartButton() throws InterruptedException {
         WebElement addToCartButton = driver.findElement(LoginPageLocators.ADD_TO_CART_BUTTON);
         addToCartButton.click();
         Thread.sleep(2000);
     }
 
+    // Method to find the search item from the search results
     public void verify_search_results(){
         // Initialize WebDriverWait
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -118,6 +128,8 @@ public class LoginPage {
             }
         }
     }
+
+    // Method to switch the tabs
     public void switchTab() {
         Set<String> windowHandles = driver.getWindowHandles();
         String firstTab = driver.getWindowHandle();

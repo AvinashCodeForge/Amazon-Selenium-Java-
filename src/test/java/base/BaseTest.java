@@ -23,6 +23,8 @@ public class BaseTest {
             e.printStackTrace();
         }
     }
+
+    // Initializes the browser and url
     public static void initialization() {
         String browserName = prop.getProperty("browser");
 

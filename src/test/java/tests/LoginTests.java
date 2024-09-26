@@ -43,7 +43,7 @@ public class LoginTests extends BaseTest {
     @Test
     public void test_verifySearchItemDisplay() {
         LoginPage login = new LoginPage(driver);
-        login.clickSearchIcon();
+        login.clickSearchInputField();
         login.clickSearchButton();
         String title = login.getTitle();
         Assert.assertEquals(title, "Amazon.in : apple iphone 15 128 gb - yellow");
@@ -52,7 +52,7 @@ public class LoginTests extends BaseTest {
     @Test
     public void test_verifyProductPage() {
         LoginPage login = new LoginPage(driver);
-        login.clickSearchIcon();
+        login.clickSearchInputField();
         login.clickSearchButton();
         login.verify_search_results();
         String title = login.getTitle();
@@ -63,7 +63,7 @@ public class LoginTests extends BaseTest {
     public void test_verifyItemAddedToCartSuccessfully() throws InterruptedException {
         LoginPage login = new LoginPage(driver);
         driver.manage().window().maximize();
-        login.clickSearchIcon();
+        login.clickSearchInputField();
         login.clickSearchButton();
         login.verify_search_results();
         login.switchTab();
@@ -74,7 +74,7 @@ public class LoginTests extends BaseTest {
     public void test_verifyItemInCart() throws InterruptedException {
         LoginPage login = new LoginPage(driver);
         driver.manage().window().maximize();
-        login.clickSearchIcon();
+        login.clickSearchInputField();
         login.clickSearchButton();
         login.verify_search_results();
         login.switchTab();
