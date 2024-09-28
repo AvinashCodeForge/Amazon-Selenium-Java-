@@ -14,7 +14,7 @@ public class BaseTest {
     public static WebDriver driver;
     public static Properties prop;
 
-    public BaseTest(){
+    public BaseTest() {
         try {
             prop = new Properties();
             FileInputStream ip = new FileInputStream("C:\\Users\\Avinash\\IdeaProjects\\SeleniumProject\\src\\main\\java\\config\\config.properties");
@@ -30,8 +30,8 @@ public class BaseTest {
 
         if (browserName.equals("chrome")) {
             driver = new ChromeDriver(); // remove the 'WebDriver' declaration here
-            driver.manage().window().maximize();
             driver.get(prop.getProperty("url"));
+            driver.manage().window().maximize();
         }
     }
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
-public class LoginPageLocators {
+public class LocatorsPage {
 
     private final WebDriver driver;
 
@@ -40,7 +40,7 @@ public class LoginPageLocators {
     public static final By CLICK_DROPDOWN = By.xpath("//span[@tabindex='-1']");
 
     // Constructor to initialize WebDriver
-    public LoginPageLocators(WebDriver driver) {
+    public LocatorsPage(WebDriver driver) {
         this.driver = driver;
     }
 

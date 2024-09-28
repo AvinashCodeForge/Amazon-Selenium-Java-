@@ -7,8 +7,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.ProductPage;
 
-public class HomePageTests extends BaseTest {
+public class ProductPageTest extends BaseTest {
 
     @BeforeMethod
     public void test_signIn() throws InterruptedException {
@@ -19,7 +20,6 @@ public class HomePageTests extends BaseTest {
         login.clickContinueButton();
         login.userPassword(prop.getProperty("password"));
         login.clickSignInButton();
-
     }
 
     @AfterMethod
@@ -30,12 +30,26 @@ public class HomePageTests extends BaseTest {
         }
     }
 
+    private void searchIem(){
+        HomePageTests home = new HomePageTests();
+        home.test_verifySearchItemDisplay();
+    }
+
     @Test
-    public void test_verifySearchItemDisplay() {
-        HomePage home = new HomePage(driver);
-        home.clickSearchInputField();
-        home.clickSearchButton();
-        String title = home.getTitle();
+    public void test_verifyProductPage() {
+        ProductPage product = new ProductPage(driver);
+        searchIem();
+        product.verify_search_results();
+        String title = product.getTitle();
         Assert.assertEquals(title, "Amazon.in : apple iphone 15 128 gb - yellow");
+    }
+
+    @Test
+    public void test_verifyItemAddedToCartSuccessfully() throws InterruptedException {
+        ProductPage product = new ProductPage(driver);
+        searchIem();
+        product.verify_search_results();
+        product.switchTab();
+        product.clickAddToCartButton();
     }
 }

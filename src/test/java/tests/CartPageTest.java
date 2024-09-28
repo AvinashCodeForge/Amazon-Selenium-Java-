@@ -1,14 +1,13 @@
 package tests;
 
 import base.BaseTest;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePage;
+import pages.CartPage;
 import pages.LoginPage;
 
-public class HomePageTests extends BaseTest {
+public class CartPageTest extends BaseTest {
 
     @BeforeMethod
     public void test_signIn() throws InterruptedException {
@@ -30,12 +29,18 @@ public class HomePageTests extends BaseTest {
         }
     }
 
+    private void cartItem() throws InterruptedException {
+        ProductPageTest product = new ProductPageTest();
+        product.test_verifyItemAddedToCartSuccessfully();
+    }
+
     @Test
-    public void test_verifySearchItemDisplay() {
-        HomePage home = new HomePage(driver);
-        home.clickSearchInputField();
-        home.clickSearchButton();
-        String title = home.getTitle();
-        Assert.assertEquals(title, "Amazon.in : apple iphone 15 128 gb - yellow");
+    public void test_verifyItemInCart() throws InterruptedException {
+        CartPage cart = new CartPage(driver);
+        cartItem();
+        Thread.sleep(2000);
+        cart.clickCartIcon();
+        cart.checkItemPrice();
+        Thread.sleep(2000);
     }
 }

@@ -5,10 +5,12 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePage;
 import pages.LoginPage;
 
-public class HomePageTests extends BaseTest {
+
+public class LoginPageTests extends BaseTest {
+
+    String TITLE = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
 
     @BeforeMethod
     public void test_signIn() throws InterruptedException {
@@ -31,11 +33,8 @@ public class HomePageTests extends BaseTest {
     }
 
     @Test
-    public void test_verifySearchItemDisplay() {
-        HomePage home = new HomePage(driver);
-        home.clickSearchInputField();
-        home.clickSearchButton();
-        String title = home.getTitle();
-        Assert.assertEquals(title, "Amazon.in : apple iphone 15 128 gb - yellow");
+    public void test_verifyLoginPageTitle() {
+        String title = driver.getTitle();
+        Assert.assertEquals(title, TITLE);
     }
 }
